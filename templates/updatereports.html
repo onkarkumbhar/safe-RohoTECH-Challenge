@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update Report</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <style>
+            h1 {
+              font-size: 20px;
+              margin-top: 24px;
+              margin-bottom: 24px;
+            }
+
+            img {
+            height: 60px;
+            }
+            body,h1,h2,h3,h4,h5,h6 {
+              font-family: "Lato", sans-serif;
+            }
+            .w3-bar,h1,button {
+              font-family: "Montserrat", sans-serif;
+            }
+            .fa-anchor,.fa-coffee {
+              font-size: 200px;
+            }
+            .w3-container{
+                height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+      <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+        <img src="{{ url_for('static',filename='gov.jpg')}}" style="height: 50px;width:50px;">
+        <a href="/officialpanel.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+        <a href="/viewreports.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">View Reports</a>
+        <a href="/updatereports.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Update Reports</a>
+        <a href="/logout.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
+      </div>
+        <header class="w3-container" style="padding: 300px 16px; background-image: url({{ url_for('static',filename='India-flag.jpg')}});">
+            <h1 class="w3-margin w3-jumbo"></h1>
+            <p class="w3-xlarge"><h1 style="color: greenyellow; font-weight:bolder;font-size:70px;">Report and save life!!!</h1></p>
+          </header>
+        <div class="col-md-6 offset-md-3 mt-5">
+        <h1>Upload Evidence and update status....</h1>
+        <form accept-charset="UTF-8" action="/updatereports.html" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="exampleInputEmail1" required="required"></label>
+              <input type="text" name="reportID" class="form-control" placeholder="Report ID">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Update Status</label>
+              <select class="form-control" id="exampleFormControlSelect1" name="report_status" required="required">
+                <option>Open</option>
+                <option>Working</option>
+                <option>Closed</option>
+                <option>Invalid</option>
+              </select>
+            </div>
+            <hr>
+            <div class="form-group mt-3">
+              <label class="mr-2">Upload Image or video(Evidence):</label>
+              <input type="file" name="file">
+            </div>
+            <hr>
+            {{error}}
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title> Report</title>
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <style>
+            h1 {
+              font-size: 20px;
+              margin-top: 24px;
+              margin-bottom: 24px;
+            }
+
+            img {
+            height: 60px;
+            }
+            body,h1,h2,h3,h4,h5,h6 {
+              font-family: "Lato", sans-serif;
+            }
+            .w3-bar,h1,button {
+              font-family: "Montserrat", sans-serif;
+            }
+            .fa-anchor,.fa-coffee {
+              font-size: 200px;
+            }
+            .w3-container{
+                height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+      <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+        <img src="{{ url_for('static',filename='gov.jpg')}}" style="height: 50px;width:50px;">
+        <a href="/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+        <a href="/information.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">How to report?</a>
+        <a href="/report.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Report</a>
+        <a href="/login-signup-official.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login / Signup Officials</a>
+      </div>
+        <header class="w3-container" style="padding: 300px 16px; background-image: url({{ url_for('static',filename='India-flag.jpg')}});">
+            <h1 class="w3-margin w3-jumbo"></h1>
+            <p class="w3-xlarge"><h1 style="color: greenyellow; font-weight:bolder;font-size:70px;">Report and save life!!!</h1></p>
+          </header>
+   <div class="col-md-6 offset-md-3 mt-5">
+     <h1>Give us information so that we can help....</h1>
+     <form accept-charset="UTF-8" action="/report.html" method="POST" enctype="multipart/form-data">
+       <div class="form-group">
+         <label for="exampleInputEmail1" required="required">Address</label>
+         <input type="text" name="address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter address of place">
+       </div>
+       <div class="form-group">
+         <label for="exampleFormControlSelect1">What Kind of help?</label>
+         <select class="form-control" id="exampleFormControlSelect1" name="platform" required="required">
+           <option>Emergency - Hospital</option>
+           <option>Emergency - Crime</option>
+           <option>Road Safety</option>
+           <option>Other Safety reasons</option>
+         </select>
+       </div>
+       <hr>
+       <div class="form-group mt-3">
+         <label class="mr-2">Upload Image or video:</label>
+         <input type="file" name="file">
+       </div>
+       <hr>
+       {{error}}
+       <button type="submit" class="btn btn-primary">Submit</button>
+     </form>
+ </div> 
+ </body>
+</html>
